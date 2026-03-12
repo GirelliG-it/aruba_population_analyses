@@ -1,0 +1,109 @@
+Indicator,Year,Sex,Value
+ Live births,2015,Male,648
+ Live births,2015,Female,599
+ Live births,2016,Male,670
+ Live births,2016,Female,594
+ Live births,2017,Male,669
+ Live births,2017,Female,579
+ Live births,2018,Male,580
+ Live births,2018,Female,597
+ Live births,2019,Male,616
+ Live births,2019,Female,568
+ Live births,2020,Male,566
+ Live births,2020,Female,486
+ Live births,2021,Male,525
+ Live births,2021,Female,494
+ Live births,2022,Male,479
+ Live births,2022,Female,436
+ Live births,2023,Male,456
+ Live births,2023,Female,400
+ Deaths,2015,Male,384
+ Deaths,2015,Female,303
+ Deaths,2016,Male,396
+ Deaths,2016,Female,393
+ Deaths,2017,Male,361
+ Deaths,2017,Female,356
+ Deaths,2018,Male,379
+ Deaths,2018,Female,351
+ Deaths,2019,Male,346
+ Deaths,2019,Female,325
+ Deaths,2020,Male,419
+ Deaths,2020,Female,324
+ Deaths,2021,Male,508
+ Deaths,2021,Female,456
+ Deaths,2022,Male,473
+ Deaths,2022,Female,406
+ Deaths,2023,Male,426
+ Deaths,2023,Female,388
+ Natural increase,2015,Male,264
+ Natural increase,2015,Female,296
+ Natural increase,2016,Male,274
+ Natural increase,2016,Female,201
+ Natural increase,2017,Male,308
+ Natural increase,2017,Female,223
+ Natural increase,2018,Male,201
+ Natural increase,2018,Female,246
+ Natural increase,2019,Male,270
+ Natural increase,2019,Female,243
+ Natural increase,2020,Male,147
+ Natural increase,2020,Female,162
+ Natural increase,2021,Male,17
+ Natural increase,2021,Female,38
+ Natural increase,2022,Male,6
+ Natural increase,2022,Female,30
+ Natural increase,2023,Male,30
+ Natural increase,2023,Female,12
+ Domiciliation,2015,Male,1780
+ Domiciliation,2015,Female,1815
+ Domiciliation,2016,Male,1264
+ Domiciliation,2016,Female,1327
+ Domiciliation,2017,Male,1291
+ Domiciliation,2017,Female,1422
+ Domiciliation,2018,Male,1420
+ Domiciliation,2018,Female,1749
+ Domiciliation,2019,Male,1312
+ Domiciliation,2019,Female,1497
+ Domiciliation,2020,Male,882
+ Domiciliation,2020,Female,964
+ Domiciliation,2021,Male,1015
+ Domiciliation,2021,Female,1178
+ Domiciliation,2022,Male,1174
+ Domiciliation,2022,Female,1406
+ Domiciliation,2023,Male,1455
+ Domiciliation,2023,Female,1677
+ Departures,2015,Male,1376
+ Departures,2015,Female,1318
+ Departures,2016,Male,1386
+ Departures,2016,Female,1498
+ Departures,2017,Male,1662
+ Departures,2017,Female,1749
+ Departures,2018,Male,1508
+ Departures,2018,Female,1595
+ Departures,2019,Male,1579
+ Departures,2019,Female,1666
+ Departures,2020,Male,1614
+ Departures,2020,Female,1850
+ Departures,2021,Male,1298
+ Departures,2021,Female,1414
+ Departures,2022,Male,1404
+ Departures,2022,Female,1528
+ Departures,2023,Male,1366
+ Departures,2023,Female,1394
+ Net migration,2015,Male,404
+ Net migration,2015,Female,497
+ Net migration,2016,Male,-122
+ Net migration,2016,Female,-171
+ Net migration,2017,Male,-371
+ Net migration,2017,Female,-327
+ Net migration,2018,Male,-88
+ Net migration,2018,Female,154
+ Net migration,2019,Male,-267
+ Net migration,2019,Female,-169
+ Net migration,2020,Male,-732
+ Net migration,2020,Female,-886
+ Net migration,2021,Male,-283
+ Net migration,2021,Female,-236
+ Net migration,2022,Male,-230
+ Net migration,2022,Female,-122
+ Net migration,2023,Male,89
+ Net migration,2023,Female,283
