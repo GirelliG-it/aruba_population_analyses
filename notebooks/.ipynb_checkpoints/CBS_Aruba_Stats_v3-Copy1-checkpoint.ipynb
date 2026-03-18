@@ -7,7 +7,7 @@
    "source": [
     "# Analyze year-to-year population change by sex in Aruba\n",
     "\n",
-    "This notebook visualizes year-to-year population changes by sex in Aruba between 2016 and 2023, establishing a baseline before examining migration drivers and age structure in subsequent notebooks.\n",
+    "This notebook visualizes year-to-year population change between sex in Aruba between 2016 and 2023, establishing a baseline before examining migration drivers and age structure in subsequent notebooks.\n",
     "This analysis is part of a multi-notebook project that aims to investigate Aruba's dependencies and vulnerabilities, examining health data, economic indicators, and social structures alongside demographic trends.\n",
     "\n",
     "## Data Source\n",
@@ -40,7 +40,7 @@
    "metadata": {},
    "source": [
     "---\n",
-    "**Import libraries and set path**\n",
+    "**Import libraries and Path**\n",
     "---"
    ]
   },
@@ -57,24 +57,27 @@
     "import matplotlib.ticker as ticker\n",
     "import numpy as np\n",
     "\n",
-    "# Establish path\n",
-    "import sys\n",
+    "# Import Class\n",
     "from pathlib import Path\n",
     "\n",
-    "sys.path.append(str(Path.cwd().parent if Path.cwd().name == \"notebooks\" else Path.cwd()))\n",
+    "# Set Path to current working directory\n",
+    "cwd = Path.cwd()\n",
     "\n",
-    "from config.project_paths import (\n",
-    "    ROOT,\n",
-    "    DATA_RAW,\n",
-    "    DATA_PROCESSED,\n",
-    "    FIGURES,\n",
-    "    YEAR_MIN,\n",
-    "    YEAR_MAX,\n",
-    "    get_raw_data_path,\n",
-    "    get_processed_data_path,\n",
-    "    get_figure_path,\n",
-    "    validate_paths,\n",
-    ")"
+    "# Set filesystem paths\n",
+    "ROOT = cwd.parent if cwd.name == \"notebooks\" else cwd\n",
+    "\n",
+    "# Establish paths\n",
+    "ROOT\n",
+    "\n",
+    "DATA_RAW = ROOT / \"data\" / \"raw\"\n",
+    "\n",
+    "DATA_PROCESSED = ROOT / \"data\" / \"processed\"\n",
+    "\n",
+    "FIGURES = ROOT / \"figures\"\n",
+    "\n",
+    "# Set scope in years of available data\n",
+    "YEAR_MIN = 2015\n",
+    "YEAR_MAX = 2023"
    ]
   },
   {
@@ -90,7 +93,7 @@
       "ROOT: /home/ggirelli/Documents/DataAnalysis/Projects/Capstone_1\n",
       "RAW DATA: /home/ggirelli/Documents/DataAnalysis/Projects/Capstone_1/data/raw\n",
       "PROCESSED DATA: /home/ggirelli/Documents/DataAnalysis/Projects/Capstone_1/data/processed\n",
-      "FIGURES: /home/ggirelli/Documents/DataAnalysis/Projects/Capstone_1/outputs/figures\n"
+      "FIGURES: /home/ggirelli/Documents/DataAnalysis/Projects/Capstone_1/figures\n"
      ]
     }
    ],
@@ -107,7 +110,6 @@
    "id": "00c2ed22-032d-4480-bc01-4b9186a63dd5",
    "metadata": {},
    "source": [
-    "---\n",
     "# **Load data set and test for errors**"
    ]
   },
