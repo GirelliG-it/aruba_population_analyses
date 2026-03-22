@@ -34,3 +34,8 @@ outputs/exports/*
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# --- Office / Temp Files ---
+.~lock.*
+*.tmp
+*.bak
