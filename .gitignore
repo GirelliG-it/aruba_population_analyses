@@ -1,0 +1,36 @@
+# --- Python Specific ---
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+.pytest_cache/
+
+# --- Jupyter Notebooks ---
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# --- Data & Outputs (Crucial for Data Analysis) ---
+# We usually don't track raw data because it can be large or sensitive
+data/raw/*
+# But we keep the folder structure by allowing a .gitkeep file
+!data/raw/.gitkeep
+
+data/processed/*
+!data/processed/.gitkeep
+
+# Ignore all generated figures and tables
+outputs/figures/*
+outputs/tables/*
+outputs/exports/*
+!outputs/**/*.gitkeep
+
+# --- OS Specific (CentOS/Linux) ---
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
