@@ -33,3 +33,8 @@ jobs:
       run: |
         # Use the scripts folder we just verified with your .gitkeep files
         python scripts/test_pipeline.py
+
+  - name: Install dependencies
+      run: |
+        # Force conda to use the absolute path of the workspace
+        conda env update --file "$GITHUB_WORKSPACE/environment.yml" --name base
