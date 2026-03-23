@@ -1,34 +1,0 @@
-Script started on 2026-03-22 13:30:01-04:00 [TERM="xterm-256color" TTY="/dev/pts/1" COLUMNS="190" LINES="44"]
-]0;ggirelli@localhost:~/Documents/DataAnalysis/Projects/Capstone_1]666;vte.shell.postexec=0\]666;vte.shell.precmd!\]7;file://localhost/home/ggirelli/Documents/DataAnalysis/Projects/Capstone_1\[?2004h[01;32m(base)[00m ggirelli@localhost:~/Documents/DataAnalysis/Projects/Capstone_1$ sc[K[Kcd scripts/
-[?2004l]133;C\]666;vte.shell.preexec!\]0;ggirelli@localhost:~/Documents/DataAnalysis/Projects/Capstone_1/scripts]666;vte.shell.postexec=0\]666;vte.shell.precmd!\]7;file://localhost/home/ggirelli/Documents/DataAnalysis/Projects/Capstone_1/scripts\[?2004h[01;32m(base)[00m ggirelli@localhost:~/Documents/DataAnalysis/Projects/Capstone_1/scripts$ ls
-[?2004l]133;C\]666;vte.shell.preexec!\[0m[01;34mconfig[0m  [01;34mdata[0m  fix_structure.py  [01;34mnotebooks[0m  [01;34moutputs[0m  py_sqlite.py  [01;34mscripts[0m  test_pipeline.py
-]0;ggirelli@localhost:~/Documents/DataAnalysis/Projects/Capstone_1/scripts]666;vte.shell.postexec=0\]666;vte.shell.precmd!\]7;file://localhost/home/ggirelli/Documents/DataAnalysis/Projects/Capstone_1/scripts\[?2004h[01;32m(base)[00m ggirelli@localhost:~/Documents/DataAnalysis/Projects/Capstone_1/scripts$ rm -r[KRi config/ data/notwe[K[Ke[K[K[K[K notebooks/ou[K[K outputs/ scripts/
-[?2004l]133;C\]666;vte.shell.preexec!\rm: descend into write-protected directory 'config/'? y
-rm: remove write-protected regular empty file 'config/.gitkeep'? y
-rm: cannot remove 'config/.gitkeep': Permission denied
-rm: descend into write-protected directory 'data/'? y
-rm: descend into write-protected directory 'data/raw'? y
-rm: remove write-protected regular empty file 'data/raw/.gitkeep'? y
-rm: cannot remove 'data/raw/.gitkeep': Permission denied
-rm: descend into write-protected directory 'data/processed'? y
-rm: remove write-protected regular empty file 'data/processed/.gitkeep'? y
-rm: cannot remove 'data/processed/.gitkeep': Permission denied
-rm: descend into write-protected directory 'notebooks/'? y
-rm: remove write-protected regular empty file 'notebooks/.gitkeep'? y
-rm: cannot remove 'notebooks/.gitkeep': Permission denied
-rm: descend into write-protected directory 'outputs/'? y
-rm: descend into write-protected directory 'outputs/figures'? y
-rm: remove write-protected regular empty file 'outputs/figures/.gitkeep'? y
-rm: cannot remove 'outputs/figures/.gitkeep': Permission denied
-rm: descend into write-protected directory 'outputs/tables'? y
-rm: remove write-protected regular empty file 'outputs/tables/.gitkeep'? y
-rm: cannot remove 'outputs/tables/.gitkeep': Permission denied
-rm: descend into write-protected directory 'outputs/exports'? y
-rm: remove write-protected regular empty file 'outputs/exports/.gitkeep'? y
-rm: cannot remove 'outputs/exports/.gitkeep': Permission denied
-rm: descend into write-protected directory 'scripts/'? y
-rm: remove write-protected regular empty file 'scripts/.gitkeep'? y
-rm: cannot remove 'scripts/.gitkeep': Permission denied
-]0;ggirelli@localhost:~/Documents/DataAnalysis/Projects/Capstone_1/scripts]666;vte.shell.postexec=0\]666;vte.shell.precmd!\]7;file://localhost/home/ggirelli/Documents/DataAnalysis/Projects/Capstone_1/scripts\[?2004h[01;32m(base)[00m ggirelli@localhost:~/Documents/DataAnalysis/Projects/Capstone_1/scripts$ ls
-[?2004l]133;C\]666;vte.shell.preexec!\[0m[01;34mconfig[0m  [01;34mdata[0m  fix_structure.py  [01;34mnotebooks[0m  [01;34moutputs[0m  py_sqlite.py  [01;34mscripts[0m  test_pipeline.py
-]0;ggirelli@localhost:~/Documents/DataAnalysis/Projects/Capstone_1/scripts]666;vte.shell.postexec=0\]666;vte.shell.precmd!\]7;file://localhost/home/ggirelli/Documents/DataAnalysis/Projects/Capstone_1/scripts\[?2004h[01;32m(base)[00m ggirelli@localhost:~/Documents/DataAnalysis/Projects/Capstone_1/scripts$ lsrm -Ri config/ data/ notebooks/ outputs/ scripts/[1@s[1@u[1@d[1@o
