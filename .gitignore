@@ -12,13 +12,18 @@ venv/
 */.ipynb_checkpoints/*
 
 # --- Data & Outputs (Crucial for Data Analysis) ---
-# We usually don't track raw data because it can be large or sensitive
+# Raw data is not being tracked because it can be large or sensitive
 data/raw/*
-# But we keep the folder structure by allowing a .gitkeep file
+# Directory structure is kept by allowing a .gitkeep file
 !data/raw/.gitkeep
 
 data/processed/*
 !data/processed/.gitkeep
+
+# Databases
+*.db
+*.sqlite
+*.sqlite3
 
 # Ignore all generated figures and tables
 outputs/figures/*
