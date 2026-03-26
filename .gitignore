@@ -28,7 +28,7 @@ data/processed/*
 # Ignore all generated figures and tables
 outputs/figures/*
 !outputs/figures/final_*.png
-#!outputs/figures/.gitkeep
+!outputs/figures/.gitkeep
 outputs/tables/*
 
 # --- OS Specific (CentOS/Linux) ---
