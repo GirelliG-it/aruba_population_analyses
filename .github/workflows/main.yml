@@ -12,29 +12,22 @@ jobs:
     
     steps:
     - name: Checkout code
-      uses: actions/checkout@v4
+      uses:
 
-    - name: Setup Conda
-      uses: conda-incubator/setup-miniconda@v3
-      with:
-        # This tells the action to look for the file in the ROOT of the repo
-        environment-file: environment.yml 
-        activate-environment: aruba_env
-        python-version: "3.10"
-        auto-activate-base: false
+    - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
 
-    - name: Run Style Check (flake8)
-      shell: bash -l {0}
-      run: |
-        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install flake8 pandas matplotlib openpyxl jupyter
 
-    - name: Run Structure and Logic Test
-      shell: bash -l {0}
-      run: |
-        # Use the scripts folder we just verified with your .gitkeep files
-        python scripts/test_pipeline.py
+      - name: Run Style Check (flake8)
+        run: |
+          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
 
-  - name: Install dependencies
-      run: |
-        # Force conda to use the absolute path of the workspace
-        conda env update --file "$GITHUB_WORKSPACE/environment.yml" --name base
+      - name: Run Structure and Logic Test
+        run: |
+          python scripts/test_pipeline.py
