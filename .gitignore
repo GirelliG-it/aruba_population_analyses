@@ -1,6 +1,8 @@
 # --- Python Specific ---
 __pycache__/
-*.py[cod]
+*.pyc
+*.pyo
+*.pyd
 *$py.class
 .venv/
 env/
@@ -28,10 +30,15 @@ data/processed/*
 # Ignore all generated figures and tables
 outputs/figures/*
 !outputs/figures/final_*.png
+!outputs/figures/final_*.svg
 !outputs/figures/.gitkeep
 outputs/tables/*
+!outputs/tables/final_*.csv
+!outputs/tables/final_*.xlsx
+!outputs/tables/final_*.md
+!outputs/tables/.gitkeep
 
-# --- OS Specific (CentOS/Linux) ---
+# --- OS Generated files ---
 .DS_Store
 .DS_Store?
 ._*
