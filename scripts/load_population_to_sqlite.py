@@ -1,14 +1,20 @@
 # Create CSV file, load and write to SQLite
 # Perform validation check
 
+#Import libraries
+import pandas as pd
 import sqlite3
+import logging
+
+# Import pathlib
 from pathlib import Path
 
-import pandas as pd
+# Set Paths
+ROOT = Path(__file__).resolve().parents[1]
 
+CSV_PATH = ROOT / "data" / "processed" / "population_change_by_sex.csv"
+DB_PATH = ROOT / "outputs" / "db_files" / "aruba.db"
 
-CSV_PATH = Path("data/processed/population_change_by_sex.csv")
-DB_PATH = Path("outputs/db_files/aruba.db")
 TABLE_NAME = "population_change_by_sex"
 
 EXPECTED_COLUMNS = ["sex", "year", "population", "annual_change"]
@@ -33,7 +39,7 @@ def validate_columns(df: pd.DataFrame) -> None:
     if extra_columns:
         raise ValueError(f"Unexpected extra columns: {extra_columns}")
 
-    print("Column validation passed.")
+    logging.info("Column validation passed.")
 
 
 def validate_dtypes_and_values(df: pd.DataFrame) -> pd.DataFrame:
