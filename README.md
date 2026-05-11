@@ -107,10 +107,6 @@ cbs_aruba/
 └── src
 
 
-
-
-This immediately signals organization and reproducibility.
-
 ---
 
 ## 4. Add “How to Run”
