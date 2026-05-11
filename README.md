@@ -8,14 +8,7 @@ This project explores structural demographic changes in Aruba between 2015 and 2
 - The most severe contraction appears in 2020, making it a clear turning point in the series.
 - Year-over-year population change suggests that female population change was more volatile than male change over the period shown.
 
-<p align="center">
-  <img src="outputs/figures/aruba_total_population_2015_2023.png" alt="Aruba total population over time, 2015 to 2023" width="48%">
-  <img src="outputs/figures/annual_population_change_rate_2015_2023.png" alt="Annual rate of population change in Aruba, 2015 to 2023" width="48%">
-</p>
-
-<p align="center">
-  <img src="outputs/figures/yoy_population_change_by_sex_2016_2023.png" alt="Year-over-year population change by sex in Aruba" width="70%">
-</p>
+![Aruba total population over time, 2015 to 2023](outputs/figures/aruba_total_population_2015_2023.png)
 
 ---
 
