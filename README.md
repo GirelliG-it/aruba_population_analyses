@@ -109,7 +109,7 @@ cbs_aruba/
 
 ---
 
-## 4. Add “How to Run”
+## 4. “How to Run”
 
 Even minimal is good.
 
