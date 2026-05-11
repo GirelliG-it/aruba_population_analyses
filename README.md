@@ -109,11 +109,6 @@ cbs_aruba/
 
 ---
 
-## 4. “How to Run”
-
-Even minimal is good.
-
-```md
 ## How to Run
 
 1. Clone the repository
