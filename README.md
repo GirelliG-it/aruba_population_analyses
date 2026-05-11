@@ -18,7 +18,7 @@ This project explores structural demographic changes in Aruba between 2015 and 2
 </p>
 
 <p align="center">
-  <em>Figure 1. Total population trend and annual population change rate.</em>
+  <em>Figures 1 and 2: Total population trend and annual population change rate.</em>
 </p>
 
 <p align="center">
@@ -28,7 +28,7 @@ This project explores structural demographic changes in Aruba between 2015 and 2
 </p>
 
 <p align="center">
-  <em>Figure 2. Year-over-year population change by sex.</em>
+  <em>Figure 3. Year-over-year population change by sex.</em>
 </p>
 
 ---
