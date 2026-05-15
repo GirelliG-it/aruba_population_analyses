@@ -82,11 +82,12 @@ Data cleaning, reshaping, and structural indicator calculations in progress.
 
 ## Stack
 
-- Excel/Google Sheets
+- Excel / Google Sheets / ONLYOFFICE
 - Python
 - pandas (matplotlib, numpy, seaborn)
 - Jupyter Notebook / JupyterLab
-- Git/GitHub
+- Typst
+- Git / GitHub
 
 
 ## Project Structure
