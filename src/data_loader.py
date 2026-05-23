@@ -10,9 +10,11 @@ def load_excel_file(filename, sheet_name=0):
     file_path = DATA_RAW / Path(filename)
 
     if not file_path.exists():
-        print(f"Error: required Excel file is missing: {filename}")
-        print(f"Place it in the raw data directory: {DATA_RAW}")
-        return pd.DataFrame()
+        raise FileNotFoundError(
+            f"Missing required raw Excel file: {filename}. "
+            f"Place it in the expected data/raw location: {DATA_RAW}. "
+            "See data/README.md for raw data setup instructions."
+        )
 
     dataframe = pd.read_excel(file_path, sheet_name=sheet_name)
     dataframe = dataframe.dropna(how="all").dropna(axis=1, how="all")
