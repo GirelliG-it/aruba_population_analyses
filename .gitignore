@@ -22,6 +22,11 @@ data/raw/*
 data/processed/*
 !data/processed/.gitkeep
 
+# Ignore spreadsheet exports and Excel lock files anywhere under data/
+data/**/.~lock.*
+data/**/*.xlsx
+data/**/*.csv
+
 # Databases
 *.db
 *.sqlite

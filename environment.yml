@@ -1,0 +1,32 @@
+name: base
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.13
+  - conda=26.1.0
+  - setuptools
+  - pip
+  - wheel
+  - conda-anaconda-telemetry[version='>=0.3.0']
+  - conda-anaconda-tos[version='>=0.2.2']
+  - conda-content-trust
+  - conda-libmamba-solver
+  - menuinst
+  - anaconda-anon-usage
+  - anaconda-auth
+  - lxml
+  - openpyxl
+  - requests
+  - pyarrow
+  - numba
+  - pytables
+  - scikit-learn
+  - scipy
+  - sqlalchemy
+  - beautifulsoup4
+  - patsy
+  - statsmodels
+  - html5lib
+  - seaborn
+prefix: /home/ggirelli/miniconda3

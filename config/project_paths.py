@@ -8,8 +8,7 @@ from pathlib import Path
 
 
 # Resolve project root
-cwd = Path.cwd()
-ROOT = cwd.parent if cwd.name == "notebooks" else cwd
+ROOT = Path(__file__).resolve().parent.parent
 
 
 # Core directories
@@ -58,6 +57,5 @@ def validate_paths(paths: dict[str, Path]) -> None:
         raise FileNotFoundError(
             f"Missing required file(s): {', '.join(missing)}"
         )
-
 
 
