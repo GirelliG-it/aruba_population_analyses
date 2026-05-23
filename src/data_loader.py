@@ -10,8 +10,8 @@ def load_excel_file(filename, sheet_name=0):
     file_path = DATA_RAW / Path(filename)
 
     if not file_path.exists():
-        print(f"Error: raw data file not found: {file_path}")
-        print("Check that the file exists in the data/raw directory.")
+        print(f"Error: required Excel file is missing: {filename}")
+        print(f"Place it in the raw data directory: {DATA_RAW}")
         return pd.DataFrame()
 
     dataframe = pd.read_excel(file_path, sheet_name=sheet_name)
