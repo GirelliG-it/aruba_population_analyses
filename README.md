@@ -106,13 +106,23 @@ cbs_aruba/
 │   └── tables
 ├── scripts
 └── src
+```
 
 
 ---
 
-## How to Run
+## Reproducibility
 
-1. Clone the repository
-2. Open the notebook in Jupyter
-3. Install required packages
-4. Run notebooks sequentially
+Raw source files and processed data files are not tracked in Git. Required CBS
+Aruba source files should be placed in `data/raw/`. See `data/README.md` for
+the current list of expected input files.
+
+To reproduce the minimal local pipeline:
+
+1. Place the required CBS Aruba source files in `data/raw/`.
+2. Create the project environment from `environment.yml`.
+3. Run:
+
+```bash
+python scripts/run_pipeline.py
+```
