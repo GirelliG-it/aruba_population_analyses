@@ -167,6 +167,12 @@ make clean-fixtures
 The `tests/fixtures/` directory is generated locally, ignored by Git, and safe
 to delete.
 
+### Fixture safety note
+
+The `make fixture`, `make smoke-test`, and `make clean-fixtures` commands only work with generated files under `tests/fixtures/`.
+
+They do not modify or delete files in `data/raw/`, `data/processed/`, `outputs/`, notebooks, or source code. The `tests/fixtures/` directory is ignored by Git and can be safely regenerated.
+
 ## Continuous Integration
 
 The CI workflow creates the Conda environment from `environment.yml`, verifies
