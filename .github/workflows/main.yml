@@ -53,24 +53,7 @@ jobs:
 
       - name: Create fixture Excel file
         run: |
-          mkdir -p tests/fixtures/raw tests/fixtures/processed
-          python - <<'PY'
-          from pathlib import Path
-
-          import pandas as pd
-
-          fixture_path = Path("tests/fixtures/raw/Demographic-aspects-2023.xlsx")
-          dataframe = pd.DataFrame(
-              [
-                  list(range(11)),
-                  list(range(11, 22)),
-              ],
-              columns=[f"Unnamed: {index}" for index in range(11)],
-          )
-
-          dataframe.to_excel(fixture_path, index=False)
-          print(f"Created fixture: {fixture_path}")
-          PY
+          python scripts/create_fixture_excel.py
 
       - name: Run pipeline against fixture data
         run: |
