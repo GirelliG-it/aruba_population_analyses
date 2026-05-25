@@ -5,15 +5,21 @@ import pandas as pd
 from config.project_paths import DATA_RAW
 
 
-def load_excel_file(filename, sheet_name=0):
+def load_excel_file(
+    filename: str,
+    sheet_name: int | str = 0,
+    base_dir: str | Path | None = None,
+) -> pd.DataFrame:
     """Load an Excel sheet from the raw data directory."""
-    file_path = DATA_RAW / Path(filename)
+    raw_dir = Path(base_dir) if base_dir is not None else DATA_RAW
+    file_path = raw_dir / Path(filename)
 
     if not file_path.exists():
         raise FileNotFoundError(
-            f"Missing required raw Excel file: {filename}. "
-            f"Place it in the expected data/raw location: {DATA_RAW}. "
-            "See data/README.md for raw data setup instructions."
+            f"Expected Excel file '{filename}' was not found. "
+            f"Looked in: {raw_dir}. "
+            "Raw data files are not tracked by Git; place local source files "
+            "in data/raw or pass a fixture directory in CI."
         )
 
     dataframe = pd.read_excel(file_path, sheet_name=sheet_name)
