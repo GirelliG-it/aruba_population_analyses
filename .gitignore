@@ -32,6 +32,12 @@ data/**/*.csv
 *.sqlite
 *.sqlite3
 
+# Generated top-level figures
+figures/*
+!figures/final_*.png
+!figures/final_*.svg
+!figures/.gitkeep
+
 # Ignore all generated figures and tables
 outputs/figures/*
 !outputs/figures/final_*.png
