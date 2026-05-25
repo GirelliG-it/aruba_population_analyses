@@ -46,17 +46,6 @@ By analyzing official datasets from the Central Bureau of Statistics (CBS), this
 This project is driven by curiosity, civic responsibility, and a commitment to evidence-based thinking.  
 
 
-**Data Sources**  
-Primary datasets include:  
-- Age distribution of the end-of-year population  
-- Live births by age of mother  
-- Teenage motherhood statistics  
-- Life expectancy by age and sex  
-- Country of birth (domiciliation data)  
-- (Planned) Hospitalization data by age group  
-All data originates from the [Central Bureau of Statistics Aruba](https://cbs.aw)
-
-
 **Approach**  
 The analysis will proceed in structured phases:  
 1. Exploratory Data Analysis (EDA) in Google Sheets for pattern recognition  
@@ -71,13 +60,26 @@ The analysis will proceed in structured phases:
 The goal is not to generate flashy dashboards, but to build a clear, reproducible, and policy-relevant analysis.  
 
 
-**Guiding Question**  
+## Data Sources
+
+Primary datasets include:  
+- Age distribution of the end-of-year population  
+- Live births by age of mother  
+- Teenage motherhood statistics  
+- Life expectancy by age and sex  
+- Country of birth (domiciliation data)  
+- (Planned) Hospitalization data by age group  
+All data originates from the [Central Bureau of Statistics Aruba](https://cbs.aw)
+
+
+## Guiding Question
+
 What demographic patterns in Aruba between 2015 and 2023 may signal long-term structural pressure on the workforce and healthcare system?  
 
 
-**Status**  
-Currently in the exploratory phase.  
-Data cleaning, reshaping, and structural indicator calculations in progress.  
+## Project Status
+
+Currently in the exploratory and pipeline-hardening phase. Data cleaning, reshaping, and structural indicator calculations are in progress.
 
 
 ## Stack
@@ -94,17 +96,23 @@ Data cleaning, reshaping, and structural indicator calculations in progress.
 
 ```text
 cbs_aruba/
+├── .github/
+│   └── workflows/
 ├── config
-│   └── __pycache__
 ├── data
-│   ├── processed
-│   └── raw
+│   ├── processed
+│   ├── raw
+│   └── README.md
+├── environment.yml
+├── Makefile
 ├── notebooks
 ├── outputs
-│   ├── db_files
-│   ├── figures
-│   └── tables
+│   ├── db_files
+│   ├── figures
+│   └── tables
 ├── scripts
+│   ├── create_fixture_excel.py
+│   └── run_pipeline.py
 └── src
 ```
 
@@ -117,12 +125,51 @@ Raw source files and processed data files are not tracked in Git. Required CBS
 Aruba source files should be placed in `data/raw/`. See `data/README.md` for
 the current list of expected input files.
 
-To reproduce the minimal local pipeline:
+Create the Conda environment from `environment.yml`:
+
+```bash
+conda env create -f environment.yml
+conda activate aruba-population-analysis
+```
+
+Update an existing environment after dependency changes:
+
+```bash
+conda env update -f environment.yml --prune
+```
+
+Run the local pipeline:
 
 1. Place the required CBS Aruba source files in `data/raw/`.
-2. Create the project environment from `environment.yml`.
-3. Run:
+2. Run:
 
 ```bash
 python scripts/run_pipeline.py
 ```
+
+## Local Development Workflow
+
+Common local checks are available through the Makefile:
+
+```bash
+make compile
+make fixture
+make smoke-test
+make clean-fixtures
+```
+
+- `make compile` compiles Python files in `config`, `src`, and `scripts`.
+- `make fixture` generates a small local Excel fixture.
+- `make smoke-test` recreates fixture data, runs the pipeline against it, and
+  verifies that the output CSV exists and is non-empty.
+- `make clean-fixtures` removes generated fixture files.
+
+The `tests/fixtures/` directory is generated locally, ignored by Git, and safe
+to delete.
+
+## Continuous Integration
+
+The CI workflow creates the Conda environment from `environment.yml`, verifies
+basic imports, compiles the Python modules, checks the pipeline CLI, generates a
+small fixture Excel file, runs the pipeline against that fixture, and verifies
+that a non-empty processed CSV is produced.
