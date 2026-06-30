@@ -63,3 +63,5 @@ Thumbs.db
 .~lock.*
 *.tmp
 *.bak
+outputs/db_files/*
+!outputs/db_files/.gitkeep
