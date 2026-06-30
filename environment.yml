@@ -12,6 +12,7 @@ dependencies:
   - scikit-learn
   - scipy
   - pyarrow
+  - duckdb
   - jupyter
   - ipykernel
   - pytest
