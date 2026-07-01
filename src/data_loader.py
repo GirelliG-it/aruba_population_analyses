@@ -7,32 +7,28 @@ and registering them as DuckDB tables.
 """
 from pathlib import Path
 import logging
+import re
 import pandas as pd
 import duckdb
 from typing import Union
 
-logger = logging.getLogger(__name__)
+from config.project_paths import DATA_RAW, DATA_PROCESSED, DB_FILES
 
+logger = logging.getLogger(__name__)
 
 def load_excel_file(
     filename: str,
     sheet_name: Union[int, str] = 0,
-    base_dir: Union[Path, None] = None,
+    base_dir: Union[Path, None] = None
 ) -> pd.DataFrame:
-    """Load an Excel sheet from the specified directory."""
-    try:
-        from config.project_paths import DATA_RAW
-    except ImportError as e:
-        logger.error(f"Failed to import project_paths: {e}")
-        raise ImportError("Could not import project_paths.") from e
-
-    raw_dir = base_dir if base_dir is not None else DATA_RAW
-    file_path = raw_dir / Path(filename)
+    """Load an Excel file from the specified directory."""
+    base_dir = base_dir if base_dir is not None else DATA_RAW
+    file_path = base_dir / Path(filename)
 
     if not file_path.exists():
         raise FileNotFoundError(
             f"Expected Excel file '{filename}' was not found. "
-            f"Looked in: {raw_dir}. "
+            f"Looked in: {base_dir}. "
             "Raw data files are not tracked by Git; place local source files "
             "in data/raw or pass a fixture directory in CI."
         )
@@ -58,12 +54,8 @@ def save_to_parquet(
     base_dir: Union[Path, None] = None,
 ) -> Path:
     """Persist a DataFrame to parquet in data/processed."""
-    try:
-        from config.project_paths import DATA_PROCESSED
-    except ImportError as e:
-        raise ImportError("Could not import project_paths.") from e
-
-    out_dir = base_dir if base_dir is not None else DATA_PROCESSED
+    out_dir =  base_dir if base_dir is not None else DATA_PROCESSED
+    out_dir.mkdir(parents=True, exist_ok=True)
     out_path = out_dir / filename
 
     df.to_parquet(out_path, index=False)
@@ -77,11 +69,12 @@ def register_in_duckdb(
     db_path: Union[Path, None] = None,
 ) -> None:
     """Register a parquet file as a view in the persistent DuckDB database."""
-    try:
-        from config.project_paths import DB_FILES
-    except ImportError as e:
-        raise ImportError("Could not import project_paths.") from e
-
+    if not table_name.isidentifier():
+        raise ValueError(
+            f"'{table_name}' is not a safe table name. "
+            "Use only letters, digits and underscores, and do not start with a digit. "
+        )
+    
     db_file = db_path if db_path is not None else DB_FILES / "aruba.duckdb"
 
     con = duckdb.connect(str(db_file))
