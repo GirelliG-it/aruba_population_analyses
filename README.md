@@ -9,10 +9,10 @@ This project explores structural demographic changes in Aruba between 2015 and 2
 - Year-over-year population change suggests that female population change was more volatile than male change over the period shown.
 
 <p align="center">
-  <img src="outputs/figures/aruba_total_population_2015_2023.png"
+  <img src="outputs/figures/final_aruba_total_population_2015_2023.png"
        alt="Aruba total population over time, 2015 to 2023"
        width="48%">
-  <img src="outputs/figures/annual_population_change_rate_2015_2023.png"
+  <img src="outputs/figures/final_annual_population_change_rate_2015_2023.png"
        alt="Annual population change rate in Aruba, 2015 to 2023"
        width="48%">
 </p>
@@ -22,7 +22,7 @@ This project explores structural demographic changes in Aruba between 2015 and 2
 </p>
 
 <p align="center">
-  <img src="outputs/figures/yoy_population_change_by_sex_2016_2023.png"
+  <img src="outputs/figures/final_yoy_population_change_by_sex_2016_2023.png"
        alt="Year-over-year population change by sex in Aruba"
        width="75%">
 </p>
