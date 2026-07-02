@@ -84,11 +84,10 @@ Currently in the exploratory and pipeline-hardening phase. Data cleaning, reshap
 
 ## Stack
 
-- Excel / Google Sheets / ONLYOFFICE
-- Python
-- pandas (matplotlib, numpy, seaborn)
+- Python (pandas, Polars) in VS Code
+- DuckDB / parquet
 - Jupyter Notebook / JupyterLab
-- Typst
+- Google Sheets (informal, quick-look exploration only — not part of the pipeline)
 - Git / GitHub
 
 
@@ -110,9 +109,6 @@ cbs_aruba/
 │   ├── db_files
 │   ├── figures
 │   └── tables
-├── scripts
-│   ├── create_fixture_excel.py
-│   └── run_pipeline.py
 └── src
 ```
 
@@ -138,14 +134,13 @@ Update an existing environment after dependency changes:
 conda env update -f environment.yml --prune
 ```
 
-Run the local pipeline:
+### Running the pipeline
 
-1. Place the required CBS Aruba source files in `data/raw/`.
-2. Run:
-
-```bash
-python scripts/run_pipeline.py
-```
+Each dataset currently has its own load step under `notebooks/load/`. Place
+the required CBS Aruba source files in `data/raw/`, then run the relevant
+load notebook/script for the table you need. A single unified entry point
+(`scripts/run_all.py`) is planned once all load steps are converted and
+stable.
 
 ## Local Development Workflow
 
@@ -153,29 +148,15 @@ Common local checks are available through the Makefile:
 
 ```bash
 make compile
-make fixture
-make smoke-test
-make clean-fixtures
 ```
 
 - `make compile` compiles Python files in `config`, `src`, and `scripts`.
-- `make fixture` generates a small local Excel fixture.
-- `make smoke-test` recreates fixture data, runs the pipeline against it, and
-  verifies that the output CSV exists and is non-empty.
-- `make clean-fixtures` removes generated fixture files.
 
-The `tests/fixtures/` directory is generated locally, ignored by Git, and safe
-to delete.
-
-### Fixture safety note
-
-The `make fixture`, `make smoke-test`, and `make clean-fixtures` commands only work with generated files under `tests/fixtures/`.
-
-They do not modify or delete files in `data/raw/`, `data/processed/`, `outputs/`, notebooks, or source code. The `tests/fixtures/` directory is ignored by Git and can be safely regenerated.
+A fixture-based smoke test (previously built around a since-deprecated
+pipeline) will be rebuilt to match the current DuckDB/parquet architecture.
 
 ## Continuous Integration
 
-The CI workflow creates the Conda environment from `environment.yml`, verifies
-basic imports, compiles the Python modules, checks the pipeline CLI, generates a
-small fixture Excel file, runs the pipeline against that fixture, and verifies
-that a non-empty processed CSV is produced.
+The CI workflow creates the Conda environment from `environment.yml`,
+verifies that core dependencies import correctly, and compiles the Python
+modules in `config`, `src`, and `scripts` to catch syntax errors early.
