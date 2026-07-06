@@ -15,18 +15,20 @@ tests/fixtures/
 */.ipynb_checkpoints/*
 
 # --- Data & Outputs (Crucial for Data Analysis) ---
-# Raw data is not being tracked because it can be large or sensitive
-data/raw/*
-# Directory structure is kept by allowing a .gitkeep file
-!data/raw/.gitkeep
+# Raw data is tracked so the pipeline is reproducible without refetching
+# external sources. Only Excel lock files are excluded.
+data/raw/.~lock.*
 
 data/processed/*
 !data/processed/.gitkeep
 
-# Ignore spreadsheet exports and Excel lock files anywhere under data/
-data/**/.~lock.*
-data/**/*.xlsx
-data/**/*.csv
+# Ignore spreadsheet exports and Excel lock files under processed/external data
+data/processed/**/.~lock.*
+data/processed/**/*.xlsx
+data/processed/**/*.csv
+data/external/**/.~lock.*
+data/external/**/*.xlsx
+data/external/**/*.csv
 
 # Databases
 *.db
