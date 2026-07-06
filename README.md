@@ -1,10 +1,10 @@
 # Demographic Shifts & Workforce Aging in Aruba (2015–2023)  
-   
+   
 This project explores structural demographic changes in Aruba between 2015 and 2023, with a specific focus on workforce aging and its broader societal implications.  
-   
+   
 ## Results / Key Findings
 
-- Aruba’s total population increased through 2019, declined sharply from 2020 onward, and showed a modest recovery in 2023.
+- Aruba's total population increased through 2019, declined sharply from 2020 onward, and showed a modest recovery in 2023.
 - The most severe contraction appears in 2020, making it a clear turning point in the series.
 - Year-over-year population change suggests that female population change was more volatile than male change over the period shown.
 
@@ -67,7 +67,7 @@ Primary datasets include:
 - Live births by age of mother  
 - Teenage motherhood statistics  
 - Life expectancy by age and sex  
-- Country of birth (domiciliation data)  
+- Country of birth (domiciliation and departures data)  
 - (Planned) Hospitalization data by age group  
 All data originates from the [Central Bureau of Statistics Aruba](https://cbs.aw)
 
@@ -79,7 +79,7 @@ What demographic patterns in Aruba between 2015 and 2023 may signal long-term st
 
 ## Project Status
 
-Currently in the exploratory and pipeline-hardening phase. Data cleaning, reshaping, and structural indicator calculations are in progress.
+Three tables are fully migrated, validated, and published: population change/density, domiciliation, and departures — each with a real reconciliation check confirming the persisted data is correct, not just that the code ran. A cross-table analysis (net domiciliation balance by country) has been built and shared. Remaining tables (age distribution, life expectancy, births, unemployment, etc.) are still being migrated one at a time.
 
 
 ## Stack
@@ -99,17 +99,24 @@ cbs_aruba/
 │   └── workflows/
 ├── config
 ├── data
+│   ├── external
 │   ├── processed
 │   ├── raw
 │   └── README.md
 ├── environment.yml
+├── LICENSE
 ├── Makefile
 ├── notebooks
+│   ├── analysis
+│   ├── eda
+│   └── load
 ├── outputs
 │   ├── db_files
 │   ├── figures
 │   └── tables
-└── src
+├── scripts
+├── src
+└── tests
 ```
 
 
@@ -117,9 +124,7 @@ cbs_aruba/
 
 ## Reproducibility
 
-Raw source files and processed data files are not tracked in Git. Required CBS
-Aruba source files should be placed in `data/raw/`. See `data/README.md` for
-the current list of expected input files.
+Raw source files are tracked in Git for reproducibility, since CBS Aruba source links can be removed or replaced without notice. Processed data files are not tracked — they're regenerated from raw sources via each table's load step. See `data/README.md` for the full file listing and per-file provenance.
 
 Create the Conda environment from `environment.yml`:
 
@@ -136,11 +141,7 @@ conda env update -f environment.yml --prune
 
 ### Running the pipeline
 
-Each dataset currently has its own load step under `notebooks/load/`. Place
-the required CBS Aruba source files in `data/raw/`, then run the relevant
-load notebook/script for the table you need. A single unified entry point
-(`scripts/run_all.py`) is planned once all load steps are converted and
-stable.
+Tables are being migrated from notebooks to standalone scripts one at a time. Converted tables (`scripts/`) run via `python scripts/load_<table>.py` and include a full validation + smoke test on every run. Tables not yet converted still have a load step under `notebooks/load/`. See `data/README.md` for which tables are in which state. A single unified entry point (`scripts/run_all.py`) is planned once all load steps are converted and stable.
 
 ## Local Development Workflow
 
@@ -152,8 +153,7 @@ make compile
 
 - `make compile` compiles Python files in `config`, `src`, and `scripts`.
 
-A fixture-based smoke test (previously built around a since-deprecated
-pipeline) will be rebuilt to match the current DuckDB/parquet architecture.
+Each converted load script includes its own validation (checking that reshaped data reconciles against reported totals) and a smoke test (re-querying the persisted DuckDB table to confirm it matches). A project-wide fixture-based test suite is a future possibility once more tables are converted.
 
 ## Continuous Integration
 
