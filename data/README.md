@@ -4,7 +4,7 @@ Raw data files are tracked in Git for reproducibility (CBS Aruba source links ca
 
 ## Raw files
 
-All raw CBS Aruba source files live in `data/raw/`. For per-file retrieval dates, exact source URLs, and attribution requirements, see [`SOURCES.md`](SOURCES.md).
+All raw CBS Aruba source files live in `data/raw/`. For per-file retrieval dates, exact source URLs, and attribution requirements, see [`SOURCES.md`](raw/SOURCES.md).
 
 Files are grouped by topic:
 
