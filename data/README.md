@@ -1,10 +1,10 @@
 # Data
 
-Raw data files are tracked in Git for reproducibility (CBS Aruba source links can be removed or replaced without notice). Processed data files are not tracked — they're regenerated from raw sources via the load notebooks.
+Raw data files are tracked in Git for reproducibility (CBS Aruba source links can be removed or replaced without notice). Processed data files are not tracked — they're regenerated from raw sources via the load step for each table.
 
 ## Raw files
 
-All raw CBS Aruba source files live in `data/raw/`. For per-file retrieval dates, exact source URLs, and attribution requirements, see [`data/raw/SOURCES.md`](raw/SOURCES.md).
+All raw CBS Aruba source files live in `data/raw/`. For per-file retrieval dates, exact source URLs, and attribution requirements, see [`SOURCES.md`](SOURCES.md).
 
 Files are grouped by topic:
 
@@ -21,10 +21,15 @@ CBS Aruba data is free to use with source attribution; non-commercial use only. 
 
 ## Generated files
 
-Each table has its own dedicated load notebook under `notebooks/load/`, which cleans and reshapes the raw source into a parquet file and registers it as a DuckDB table. There is currently no single unified pipeline script — run the load notebook for the specific table you need.
+Each table has its own dedicated load step that cleans and reshapes the raw source into a parquet file and registers it as a DuckDB table. Tables are being migrated from notebooks to standalone scripts one at a time:
 
-To regenerate a table's processed data, run its corresponding notebook, e.g.:
-- `notebooks/load/01_load_population_change_density.ipynb`
-- `notebooks/load/02_load_domiciliation.ipynb`
+**Converted to scripts** (`scripts/`):
+- `load_population_change_density.py` (Table 1.1)
+- `load_domiciliation.py` (Table 1.11)
 
-A unified `scripts/run_all.py` entry point is planned once all load steps are converted to scripts and stabilized (see main [README.md](../README.md)).
+**Still notebook-based** (`notebooks/load/`):
+- All other tables not yet converted
+
+To regenerate a table's processed data, run its script (`python scripts/load_domiciliation.py`) if converted, or its notebook otherwise.
+
+A unified `scripts/run_all.py` entry point is planned once all load steps are converted and stabilized (see main [README.md](../README.md)).
