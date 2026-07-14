@@ -16,17 +16,14 @@ tests/fixtures/
 
 # --- Data & Outputs (Crucial for Data Analysis) ---
 # Raw data is tracked so the pipeline is reproducible without refetching
-# external sources. Only Excel lock files are excluded.
-data/raw/.~lock.*
+# external sources.
 
 data/processed/*
 !data/processed/.gitkeep
 
 # Ignore spreadsheet exports and Excel lock files under processed/external data
-data/processed/**/.~lock.*
 data/processed/**/*.xlsx
 data/processed/**/*.csv
-data/external/**/.~lock.*
 data/external/**/*.xlsx
 data/external/**/*.csv
 
@@ -63,7 +60,10 @@ Thumbs.db
 
 # --- Office / Temp Files ---
 .~lock.*
+.env
 *.tmp
 *.bak
+logs/*
+!logs/.gitkeep
 outputs/db_files/*
 !outputs/db_files/.gitkeep
