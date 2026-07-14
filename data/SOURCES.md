@@ -2,7 +2,7 @@
 
 All files below originate from the [Central Bureau of Statistics Aruba](https://cbs.aw).
 
-**Attribution:** CBS Aruba data is free to use, provided the source is acknowledged. Non-commercial use only.
+**Attribution**: Free to use provided Statistics Aruba (CBS Aruba) is acknowledged as the source. Commercial use is subject to conditions set in law. (Source: CBS Aruba FAQ, retrieved 2026-07-09.)
 
 **On dates below:** these are estimated retrieval dates based on file modification time (`mtime`), not confirmed download logs. They are grouped into batches since files retrieved in the same session share near-identical timestamps. Treat as approximate.
 
